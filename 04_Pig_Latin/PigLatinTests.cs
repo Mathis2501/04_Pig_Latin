@@ -19,55 +19,55 @@ namespace _04_Pig_Latin
         public void TranslateWordBeginningWithAVowel()
         {
             Translator translator = new Translator();
-            Assert.AreEqual("appleay", translator.Translate("apple"));
+            Assert.AreEqual("appleay", Translator.Translate("apple"));
         }
         [TestMethod]
         public void TranslateWordBeginningWithAConsonant()
         {
             Translator translator = new Translator();
-            Assert.AreEqual("ananabay", translator.Translate("banana"));
+            Assert.AreEqual("ananabay", Translator.Translate("banana"));
         }
         [TestMethod]
         public void TranslateWordBeginningWithTwoConsonants()
         {
             Translator translator = new Translator();
-            Assert.AreEqual("errychay", translator.Translate("cherry"));
+            Assert.AreEqual("errychay", Translator.Translate("cherry"));
         }
         [TestMethod]
         public void TranslateTwoWords()
         {
             Translator translator = new Translator();
-            Assert.AreEqual("eatay iepay", translator.Translate("eat pie"));
+            Assert.AreEqual("eatay iepay", Translator.Translate("eat pie"));
         }
         [TestMethod]
         public void TranslateWordBeginningWithThreeConsonants()
         {
             Translator translator = new Translator();
-            Assert.AreEqual("eethray", translator.Translate("three"));
+            Assert.AreEqual("eethray", Translator.Translate("three"));
         }
         [TestMethod]
         public void Count_SCH_AsASinglePhoneme()
         {
             Translator translator = new Translator();
-            Assert.AreEqual("oolschay", translator.Translate("school"));
+            Assert.AreEqual("oolschay", Translator.Translate("school"));
         }
         [TestMethod]
         public void Count_QU_AsASinglePhoneme()
         {
             Translator translator = new Translator();
-            Assert.AreEqual("ietquay", translator.Translate("quiet"));
+            Assert.AreEqual("ietquay", Translator.Translate("quiet"));
         }
         [TestMethod]
         public void Count_QU_AsAConsonantEvenWhenPreceededByAConsonant()
         {
             Translator translator = new Translator();
-            Assert.AreEqual("aresquay", translator.Translate("square"));
+            Assert.AreEqual("aresquay", Translator.Translate("square"));
         }
         [TestMethod]
         public void TranslateManyWords()
         {
             Translator translator = new Translator();
-            Assert.AreEqual("ethay ickquay ownbray oxfay", translator.Translate("the quick brown fox"));
+            Assert.AreEqual("ethay ickquay ownbray oxfay", Translator.Translate("the quick brown fox"));
         }
         //Test-driving bonus:
         // write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
