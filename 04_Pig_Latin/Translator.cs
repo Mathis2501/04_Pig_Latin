@@ -8,72 +8,40 @@ namespace _04_Pig_Latin
 {
     class Translator
     {
-        public static string Translate(string OrigString)
+        public static string Translate(string sentence)
         {
-
-            string[] n = OrigString.Split(' ');
-            string NewString = "";
-            bool first = true;
-            char[] Vocals = { 'a', 'e', 'i', 'o', 'y' };
-
-
-
-            foreach (string element in n)
+            char[] vowels = { 'a', 'e', 'i', 'o', 'A', 'E', 'I', 'O' };
+            string newSentence = "";
+            string[] words = sentence.Split(' ');
+            foreach (string word in words)
             {
-                if (!first)
-                    NewString += " ";
-
-                if (Vocals.Contains(element[0]))
+                char c = char.ToUpper(word[0]);
+                bool vowel = "AEIO".IndexOf(c) >= 0;
+                if (vowel)
                 {
-                    NewString += element + "ay";
+                    newSentence += word + "ay ";
                 }
-
-
                 else
                 {
-
-                    char[] Letters = element.ToCharArray();
-                    NewString = OrigString;
-                    foreach (char item in Letters)
+                    char[] letters = word.ToCharArray();
+                    string newWord = word;
+                    foreach (char letter in letters)
                     {
-                        if (!Vocals.Contains(item))
+                        if (vowels.Contains(letter))
                         {
-                            NewString = NewString.Substring(1);
-                            NewString += item.ToString();
-                        }
-
-                        else
-                        {
-                            NewString += element + "ay";
+                            newSentence += newWord + "ay ";
                             break;
                         }
-
-
-
-
-
-
-
-                        /*     string CheckString = element.Substring(element.IndexOf(item));
-
-                         if (Vocals.Contains(CheckString[0]))
-                         {
-                             NewString += element.Substring(element.IndexOf(item));
-                             NewString += element.Substring(0, element.IndexOf(item));
-                             NewString += "ay";
-                             goto End;
-                         }*/
-
-
-                    }
-
-                    if (first)
-                    {
-                        first = false;
+                        else
+                        {
+                            newWord = newWord.Substring(1);
+                            newWord += letter.ToString();
+                        }
                     }
                 }
             }
-            return NewString;
+            newSentence = newSentence.Trim();
+            return newSentence;
 
         }
     }
